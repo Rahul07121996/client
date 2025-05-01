@@ -10,6 +10,7 @@ export default function ActivityList(props) {
             <ActivityCard key={item.id} activity={item}
             SelectActivity={props.SelectActivity}
             deleteActivity={props.deleteActivity}
+            deletingId={props.deletingId}
             />
         ))
        }

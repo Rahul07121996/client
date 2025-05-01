@@ -9,24 +9,31 @@ import { Chip } from '@mui/material';
 
 export default function ActivityCard(props) {
   return (
-      <Card sx={{borderRadius:3}}>
-        <CardContent>
-            <Typography variant='h5'>{props.activity.title}</Typography>
-            <Typography sx={{color:'text.secoundry',mb:1}}>{props.activity.date}</Typography>
-            <Typography variant='body2'>{props.activity.description}</Typography>
-            <Typography variant='subtitle1'>{props.activity.city} / {props.activity.venue}</Typography>
-        </CardContent>
-        <CardActions sx={{display:'flex',justifyContent:'space-between',pb:2}}>
-        <Chip label={props.activity.category} variant='outlined'/>
-        <Box sx={{display:'flex'}} gap={3}>
-        <Button size='medium' variant='contained' 
-           onClick={()=>props.SelectActivity(props.activity.id)}>View</Button>
-          <Button size='medium' variant='contained'  color='error'
-           onClick={()=>props.deleteActivity(props.activity.id)}>Delete</Button>
+    <Card sx={{ borderRadius: 3 }}>
+      <CardContent>
+        <Typography variant='h5'>{props.activity.title}</Typography>
+        <Typography sx={{ color: 'text.secoundry', mb: 1 }}>
+          {props.activity?.date &&
+            props.activity.date.substring(0, 10).split('-').reverse().join('-')}
+        </Typography>
+        <Typography variant='body2'>{props.activity.description}</Typography>
+        <Typography variant='subtitle1'>{props.activity.city} / {props.activity.venue}</Typography>
+      </CardContent>
+      <CardActions sx={{ display: 'flex', justifyContent: 'space-between', pb: 2 }}>
+        <Chip label={props.activity.category} variant='outlined' />
+        <Box sx={{ display: 'flex' }} gap={3}>
+          <Button size='medium' variant='contained'
+            onClick={() => props.SelectActivity(props.activity.id)}>View</Button>
+          <Button size='medium' variant='contained' color='error'
+          loading={props.deletingId === props.activity.id}
+            onClick={() => props.deleteActivity(props.activity.id)}>Delete</Button>
+
+
+     
         </Box>
-    
-        </CardActions>
-      </Card>
+
+      </CardActions>
+    </Card>
   )
 }
 

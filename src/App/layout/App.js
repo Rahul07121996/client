@@ -13,7 +13,7 @@ function App() {
   const[editMode,setEditMode] = useState(false);  
   const{activities,isPending} = useActivites();
 
-
+  const[fname,setfname] = useState();
 
   // useEffect(()=>{
   //   const fetchActivities = async()=>{

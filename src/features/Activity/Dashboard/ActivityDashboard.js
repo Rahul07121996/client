@@ -11,6 +11,7 @@ export default function ActivityDashboard(props) {
               SelectActivity={props.SelectActivity}
               selectedActivity = {props.selectedActivity}
               deleteActivity = {props.deleteActivity}
+              deletingId={props.deletingId}
             />
         </Grid>
         <Grid size={5}>
@@ -23,6 +24,7 @@ export default function ActivityDashboard(props) {
            <Activityform  CloseForm={props.CloseForm}
             activity={props.selectedActivity}
             SubmitForm={props.SubmitForm}
+            formLoading={props.formLoading}
             />}
         </Grid>
     </Grid>
